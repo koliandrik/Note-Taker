@@ -38,23 +38,24 @@ The following image shows the web application's appearance and functionality:
 
 ### Note Taker Homepage
 
-![Homepage](note-taker-0by1.onrender.com_.png) 
+![Homepage](img/note-taker-0by1.onrender.com_.png) 
 
 ### Note Taker Notes Page
 
-![New Note](note-taker-0by1.onrender.com_notes.png) 
+![New Note](img/note-taker-0by1.onrender.com_notes.png) 
 
 ### Note Taker Save and Clear Buttons
 
-![Save and Clear buttons while making note](<note-taker-0by1.onrender.com_notes (3).png>)
+![Save and Clear buttons while making note](img/note-taker-0by1.onrender.com_notes%20(3).png)
 
 ### Note Taker Saved Notes
 
-![View Note](<note-taker-0by1.onrender.com_notes (1).png>) 
+![View Note](img/note-taker-0by1.onrender.com_notes%20(1).png) 
 
 ### Note Taker Delete Note
 
-![Delete Note](<note-taker-0by1.onrender.com_notes (2).png>)
+![Delete Note](img/note-taker-0by1.onrender.com_notes%20(2).png)
+
 
 ## Links
 
