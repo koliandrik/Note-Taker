@@ -2,19 +2,19 @@ const notes = require('express').Router();
 const { readFromFile, readAndAppend, writeToFile, deleteFromFile } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
-// Define routes for notes
+// GET request for all notes
 notes.get('/', (req, res) => {
     console.info(`${req.method} request received for notes`);
-    // Handle GET request for all notes
     readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
 });
 
+// POST request to add a note
 notes.post('/', (req, res) => {
     console.info(`${req.method} request received to add a note`);
 
     const { title, text } = req.body;
 
-    if (req.body) {
+    if (title && text) {
         const newNote = {
             title,
             text,
@@ -24,11 +24,11 @@ notes.post('/', (req, res) => {
         readAndAppend(newNote, './db/notes.json');
         res.json(`Note added successfully 🚀`);
     } else {
-        res.error('Error in adding note');
+        res.status(400).json({ error: 'Request body must contain both title and text' });
     }
-}
-);
+});
 
+// DELETE request to delete a note
 notes.delete('/:note_id', (req, res) => {
     const noteId = req.params.note_id;
     console.info(`${req.method} request received to delete note with id ${noteId}`);
@@ -36,6 +36,5 @@ notes.delete('/:note_id', (req, res) => {
     deleteFromFile('./db/notes.json', noteId);
     res.json('Note deleted successfully');
 });
-
 
 module.exports = notes;
