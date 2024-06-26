@@ -20,6 +20,7 @@ const readAndAppend = (content, file) => {
     });
 }
 
+// Function to delete a note from a file
 const deleteFromFile = (file, id) => {
     fs.readFile(file, 'utf8', (err, data) => {
         if (err) {
