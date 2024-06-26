@@ -34,26 +34,4 @@ notes.post('/', (req, res) => {
     }
 });
 
-notes.delete('/:id', (req, res) => {
-    console.info(`${req.method} request received to delete a note`);
-    // Handle DELETE request to delete a specific note
-    const noteId = req.params.id;
-    readFromFile('./db/notes.json')
-        .then((data) => JSON.parse(data))
-        .then((json) => {
-            // Make a new array of all notes except the one with the ID provided in the URL
-            const result = json.filter((note) => note.note_id !== noteId);
-
-            // Save that array to the filesystem
-            readAndAppend(result, './db/notes.json');
-
-            const response = {
-                status: 'success',
-                body: result,
-            };
-
-            res.json(response);
-        });
-});
-
 module.exports = notes;
